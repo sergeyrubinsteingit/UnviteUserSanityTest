@@ -9,7 +9,7 @@ namespace Test.TestClasses
     {
         static IWebElement elementToCheck = null;
 
-        public static IWebElement elementState(int case_, string selector_, string textToCompare_) {
+        public static IWebElement ElementState(int case_, string selector_, string textToCompare_) {
 
             // check if an element is unchecked
             try

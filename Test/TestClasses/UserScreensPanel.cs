@@ -47,7 +47,7 @@ namespace Test.TestClasses
             /////// Checks if the LOGS menu is unchecked ///////
             RunTask = Task.Run(() => {
 
-                AssertState.elementState
+                AssertState.ElementState
                 (
                     1, /* case: 1 = xpath, deselected; 2 = css selector, deselected; case: 3 = xpath, selected; 4 = css selector, selected; case: 5 = xpath, compare strings; */
                     GlobalClasses.TestData.TestKeyValues[GlobalClasses.TestData.KeyWords.INVITE_USER_LOG_BOX], /*screen element to search for*/
