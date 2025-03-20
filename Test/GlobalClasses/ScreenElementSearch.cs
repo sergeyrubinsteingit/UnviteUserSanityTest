@@ -1,8 +1,5 @@
 ﻿using OpenQA.Selenium;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Test.GlobalClasses
@@ -16,7 +13,7 @@ namespace Test.GlobalClasses
 
         [Obsolete]
         public static IWebElement SearchForElement(int case_, string elementSelector, bool isIframe, 
-            string iframeXpath, string DropMenuEntry, string KeysToSend) {
+            string iframeXpath, string DropMenuEntry, string KeysToSend, bool clickIt) {
 
             // initializing
             RequiredElement = null;
@@ -33,7 +30,7 @@ namespace Test.GlobalClasses
             System.Threading.Thread.Sleep(Convert.ToInt32(BandwidthCheck.DownloadRate * 10));
 
             // clicks the element
-            StaleElementCase.ExpectedStaleElement.Click();
+            if (clickIt) StaleElementCase.ExpectedStaleElement.Click();
 
             // fills in the element's field
             if (KeysToSend != null) StaleElementCase.ExpectedStaleElement.SendKeys(KeysToSend);

@@ -161,9 +161,11 @@
     <Compile Include="GlobalClasses\TestData.cs" />
     <Compile Include="GlobalClasses\UserInputDialogBox.cs" />
     <Compile Include="GlobalClasses\WaitTillExpectedCondition.cs" />
+    <Compile Include="TestClasses\AlertRulesPanel.cs" />
     <Compile Include="TestClasses\AssertState.cs" />
     <Compile Include="TestClasses\EmailFieldsTest.cs" />
     <Compile Include="TestClasses\NextPreviousButtons.cs" />
+    <Compile Include="TestClasses\SalesAlertsPanel.cs" />
     <Compile Include="TestClasses\UserDetailsPanel.cs" />
     <Compile Include="TestClasses\OpenOutlook.cs" />
     <Compile Include="TestClasses\CookieBarIAvailability.cs" />

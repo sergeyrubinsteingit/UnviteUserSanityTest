@@ -29,9 +29,10 @@ namespace Test
             // gets a bandwidth rate
             GlobalClasses.BandwidthCheck.RunBandwidthCheck();
 
+
+            // checks connection state
             RunTask = Task.Run(() => {
 
-                // checks connection state
                 GlobalClasses.InternetConnectionCheck.AvailablePort();
 
             });
@@ -50,37 +51,49 @@ namespace Test
             // forsed pause to let cookies be deleted
             System.Threading.Thread.Sleep(Convert.ToInt32(GlobalClasses.BandwidthCheck.DownloadRate));
 
+
             // Log into DCS
             RunTask = Task.Run(() => {
+
                 GlobalClasses.LoginToDcs.LoginFlow();
+
             });
             RunTask.Wait();
 
 
             // fires SMS or Moma method
             RunTask = Task.Run(() => {
+
                 GlobalClasses.SmsOrMomaLogin.SmsInputField();
+
             });
             RunTask.Wait();
 
 
             // accepts the cookies
             RunTask = Task.Run(() => {
+
                 TestClasses.CookieBarIAvailability.FindCookieBar();
+
             });
             RunTask.Wait();
 
 
             // switches to DCS in necessary
             RunTask = Task.Run(() => {
+
                 GlobalClasses.SwitchToOldDcs.SwitchToOldDcsUi();
+
             });
             RunTask.Wait();
 
 
-            // a window to fill a user's details in
-            RunTask = Task.Run(() => {
+            // a panel to fill a user's details in
+            RunTask = Task.Run(() =>
+            {
+
                 TestClasses.UserDetailsPanel.UserDetails();
+
             });
             RunTask.Wait();
 
@@ -88,41 +101,83 @@ namespace Test
             /////// Clicking the "Next"-"Previous", also the "Invite" buttons ///////
             RunTask = Task.Run(() => {
 
-                TestClasses.NextPreviousButtons.ClickNextPreviousButton(true);
+                TestClasses.NextPreviousButtons.ClickNextPreviousButton(true, false);
 
             });
             RunTask.Wait();
 
-            // a window to fill a user's roles in
-            RunTask = Task.Run(() => {
-                TestClasses.UserRolesPanel.UserRoles();
-            });
-            RunTask.Wait();
-
-
-            /////// Clicking the "Next"-"Previous", also the "Invite" buttons ///////
-            RunTask = Task.Run(() => {
-
-                TestClasses.NextPreviousButtons.ClickNextPreviousButton(true);
-
-            });
-            RunTask.Wait();
-
-
-            // a window to choose UI screens available to a user
-            RunTask = Task.Run(() => {
-                TestClasses.UserScreensPanel.UserScreens();
-            });
-            RunTask.Wait();
-
-
-            /////// Clicking the "Next"-"Previous", also the "Invite" buttons ///////
+            // a panel to fill a user's roles in
             //RunTask = Task.Run(() => {
 
-            //    TestClasses.NextPreviousButtons.ClickNextPreviousButton(true);
+            //    TestClasses.UserRolesPanel.UserRoles();
 
             //});
             //RunTask.Wait();
+
+
+            /////// Clicking the "Next"-"Previous", also the "Invite" buttons ///////
+            RunTask = Task.Run(() => {
+
+                TestClasses.NextPreviousButtons.ClickNextPreviousButton(true, false);
+
+            });
+            RunTask.Wait();
+
+
+            // a panel to choose UI screens available to a user
+            //RunTask = Task.Run(() => {
+
+            //    TestClasses.UserScreensPanel.UserScreens();
+
+            //});
+            //RunTask.Wait();
+
+
+            /////// Clicking the "Next"-"Previous", also the "Invite" buttons ///////
+            RunTask = Task.Run(() => {
+
+                TestClasses.NextPreviousButtons.ClickNextPreviousButton(true, false);
+
+            });
+            RunTask.Wait();
+
+
+            // a panel to set the rules fo Sales / Machine Alerts report
+            //RunTask = Task.Run(() => {
+
+            //    TestClasses.SalesAlertsPanel.SalesAlertsScreen();
+
+            //});
+            //RunTask.Wait();
+
+
+            ///// Clicking the "Next"-"Previous", also the "Invite" buttons ///////
+            RunTask = Task.Run(() =>
+            {
+
+                TestClasses.NextPreviousButtons.ClickNextPreviousButton(true, false);
+
+            });
+            RunTask.Wait();
+
+
+            // a panel to set the alert rules for a machine
+            RunTask = Task.Run(() => {
+
+                TestClasses.AlertRulesPanel.AlertRulesScreen();
+
+            });
+            RunTask.Wait();
+
+
+            ///// Clicking the "Next"-"Previous", also the "Invite" buttons, here is Invite ///////
+            RunTask = Task.Run(() =>
+            {
+
+                TestClasses.NextPreviousButtons.ClickNextPreviousButton(true, true);
+
+            });
+            RunTask.Wait();
 
 
             // reads a message in the Outlook mailer

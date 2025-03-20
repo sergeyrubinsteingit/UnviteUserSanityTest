@@ -12,14 +12,29 @@ namespace Test.TestClasses
     {
         static Task RunTask;
 
-        static readonly string[] buttonSelectors = new [] { 
-            GlobalClasses.TestData.TestKeyValues[GlobalClasses.TestData.KeyWords.INVITE_USER_NEXT_BUTTON],
-            GlobalClasses.TestData.TestKeyValues[GlobalClasses.TestData.KeyWords.INVITE_USER_PREVIUOS_BUTTON],
-            GlobalClasses.TestData.TestKeyValues[GlobalClasses.TestData.KeyWords.INVITE_USER_NEXT_BUTTON]
-        };
-
         [Obsolete]
-        public static void ClickNextPreviousButton(bool isFrame) {
+        public static void ClickNextPreviousButton(bool isFrame, bool isInvite) {
+
+            // to distinguish between Next and Invite buttons
+            string[] buttonSelectors;
+
+            if (isInvite) {
+
+                buttonSelectors = new[] {
+                    GlobalClasses.TestData.TestKeyValues[GlobalClasses.TestData.KeyWords.INVITE_USER_NEXT_BUTTON],
+                    GlobalClasses.TestData.TestKeyValues[GlobalClasses.TestData.KeyWords.INVITE_USER_INVITE_BUTTON]
+                };
+
+            }
+            else {
+
+                buttonSelectors = new[] {
+                    GlobalClasses.TestData.TestKeyValues[GlobalClasses.TestData.KeyWords.INVITE_USER_NEXT_BUTTON],
+                    GlobalClasses.TestData.TestKeyValues[GlobalClasses.TestData.KeyWords.INVITE_USER_PREVIUOS_BUTTON],
+                    GlobalClasses.TestData.TestKeyValues[GlobalClasses.TestData.KeyWords.INVITE_USER_NEXT_BUTTON]
+                };
+
+            };//if
 
             for (int i = 0; i < buttonSelectors.Length; i++) {
 
@@ -34,7 +49,8 @@ namespace Test.TestClasses
                             true, /*is iframe?*/
                             GlobalClasses.TestData.TestKeyValues[GlobalClasses.TestData.KeyWords.INVITE_USER_IFRAME], /*iframe's xpath*/
                             null, /*menu entry's xpath*/
-                            null /*keys to send*/
+                            null, /*keys to send*/
+                            true /*click the element*/
                         );
 
                     });

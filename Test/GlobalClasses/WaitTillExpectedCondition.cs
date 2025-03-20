@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
-using System.Windows;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 
@@ -23,7 +18,7 @@ namespace Test.GlobalClasses
         public static IWebElement ElementExistsByCssSelector(string ElementSelector, int WaitingSpan)
         {
             // forced pause
-            System.Threading.Thread.Sleep(Convert.ToInt32(BandwidthCheck.DownloadRate));
+            Thread.Sleep(Convert.ToInt32(BandwidthCheck.DownloadRate));
 
             FluentWait.Timeout = TimeSpan.FromSeconds(WaitingSpan);
 
@@ -122,7 +117,7 @@ namespace Test.GlobalClasses
         public static IWebElement ElementDisplayedByXpath(string ElementXpath, int WaitingSpan)
         {
             // forced pause
-            System.Threading.Thread.Sleep(Convert.ToInt32(BandwidthCheck.DownloadRate * 1));
+            Thread.Sleep(Convert.ToInt32(BandwidthCheck.DownloadRate * 1));
 
             FluentWait.Timeout = TimeSpan.FromSeconds(WaitingSpan);
 
@@ -130,7 +125,7 @@ namespace Test.GlobalClasses
 
             FluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException));
 
-            FluentWait.IgnoreExceptionTypes(typeof(OpenQA.Selenium.WebDriverException));
+            FluentWait.IgnoreExceptionTypes(typeof(WebDriverException));
 
             // time counter, milliseconds
             var StopWatch = new Stopwatch();
@@ -140,7 +135,7 @@ namespace Test.GlobalClasses
             ExpectedElement = FluentWait.Until(driver => Procedure.webDriver.FindElement(By.XPath(ElementXpath)));
 
             // forced pause
-            Thread.Sleep(Convert.ToInt32(GlobalClasses.BandwidthCheck.DownloadRate) * 100);
+            Thread.Sleep(Convert.ToInt32(BandwidthCheck.DownloadRate) * 100);
 
             if (ExpectedElement.Displayed) // && ExpectedElement.Enabled && ExpectedElement.GetAttribute("aria-disabled") == null
             {

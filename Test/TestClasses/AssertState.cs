@@ -9,7 +9,7 @@ namespace Test.TestClasses
     {
         static IWebElement elementToCheck = null;
 
-        public static IWebElement ElementState(int case_, string selector_, string textToCompare_) {
+        public static IWebElement ElementState(int case_, string selector_, string textToCompare_, int expectedNumber) {
 
             // check if an element is unchecked
             try
@@ -58,20 +58,37 @@ namespace Test.TestClasses
 
                     case 5:
 
-                        elementToCheck = Procedure.webDriver.FindElement(By.PartialLinkText(selector_));
+                        elementToCheck = GlobalClasses.WaitTillExpectedCondition.ExpectedElement;
 
-                        Assert.Equals(
+                        Console.WriteLine("Element text: " + GlobalClasses.WaitTillExpectedCondition.ExpectedElement.Text
+                            + "; Text to compare: " + textToCompare_);
+
+                        Assert.AreEqual(
                             selector_ = Regex.Replace(selector_, @"\s", "").ToLower(),
                             textToCompare_ = Regex.Replace(textToCompare_, @"\s", "").ToLower()
                         ); // is text matches
 
-                        Console.WriteLine("Text matches:" + selector_);
+                        Console.WriteLine("Text matches: " + selector_);
+
+                        break;
+
+                    case 6:
+
+                        Console.WriteLine("Elements to count: " + Procedure.webDriver.FindElements(By.XPath(selector_)).Count);
+
+                        elementToCheck = Procedure.webDriver.FindElements(By.XPath(selector_))[0];
+
+                        int countedNumber = Procedure.webDriver.FindElements(By.XPath(selector_)).Count; 
+
+                        Assert.AreEqual( (Int64)expectedNumber, (Int64)countedNumber ); // are numbers match
+
+                        Console.WriteLine("Numbers match.  Expected number: " + expectedNumber + ", Counted number: " + countedNumber);
 
                         break;
 
                     default:
 
-                        Environment.Exit(-1);
+                        Procedure.webDriver.Quit();
 
                         throw new Exception("Failed to find an element" + selector_ + ". The test is shut down.");
 
@@ -81,7 +98,7 @@ namespace Test.TestClasses
             catch (Exception e)
             {
 
-                Environment.Exit(-1);
+                Procedure.webDriver.Quit();
 
                 throw new Exception("Failed to proceed the element " + elementToCheck + ". The test is shut down.\nTrace:\n" + e);
 

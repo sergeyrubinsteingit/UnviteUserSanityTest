@@ -49,10 +49,9 @@ namespace Test.GlobalClasses
 				}
 				catch (Exception)
                 {
-					Console.WriteLine("Failed to find SMS/MOMA login input. The test is shut down.");
 					Procedure.webDriver.Quit();
-					System.Environment.Exit(0);
-					throw;
+
+					throw new Exception("Failed to find SMS/MOMA login input. The test is shut down.");
                 }
             }
 
@@ -66,7 +65,7 @@ namespace Test.GlobalClasses
 			RunTask.Wait();
 
 			///////
-			System.Console.WriteLine("Control: " + WaitTillExpectedCondition.ExpectedElement.GetAttribute("id"));
+			System.Console.WriteLine("Control: " + WaitTillExpectedCondition.ExpectedElement.GetDomProperty("id"));
 
             // click in the OTC input field to get it in focus
             WaitTillExpectedCondition.ExpectedElement.Click();

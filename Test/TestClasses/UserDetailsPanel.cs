@@ -69,7 +69,8 @@ namespace Test.TestClasses
                     true, /*is iframe?*/
                     GlobalClasses.TestData.TestKeyValues[GlobalClasses.TestData.KeyWords.INVITE_USER_IFRAME], /*iframe's xpath*/
                     "//*[@id=\"actor_id\"]/div[2]/ul/li[2]/b", /*menu entry's xpath*/
-                    GlobalClasses.TestData.TestKeyValues[GlobalClasses.TestData.KeyWords.ACTOR_QA] /*keys to send*/
+                    GlobalClasses.TestData.TestKeyValues[GlobalClasses.TestData.KeyWords.ACTOR_QA], /*keys to send*/
+                    false /*click the element*/
                 );
 
             });
@@ -85,7 +86,8 @@ namespace Test.TestClasses
                     true, /*is iframe?*/
                     GlobalClasses.TestData.TestKeyValues[GlobalClasses.TestData.KeyWords.INVITE_USER_IFRAME], /*iframe's xpath*/
                     null, /*menu entry's xpath*/
-                    GlobalClasses.TestData.TestKeyValues[GlobalClasses.TestData.KeyWords.INVITE_USER_JOB_TITLE_DESCR] /*keys to send*/
+                    GlobalClasses.TestData.TestKeyValues[GlobalClasses.TestData.KeyWords.INVITE_USER_JOB_TITLE_DESCR], /*keys to send*/
+                    false /*click the element*/
                 );
 
             });
@@ -101,7 +103,8 @@ namespace Test.TestClasses
                     true, /*is iframe?*/
                     GlobalClasses.TestData.TestKeyValues[GlobalClasses.TestData.KeyWords.INVITE_USER_IFRAME], /*iframe's xpath*/
                     "//*[@id=\"job_function\"]/div[2]/ul/li[2]", /*menu entry's xpath*/
-                    null /*keys to send*/
+                    null, /*keys to send*/
+                    true /*click the element*/
                 );
 
             });
@@ -117,7 +120,8 @@ namespace Test.TestClasses
                     true, /*is iframe?*/
                     GlobalClasses.TestData.TestKeyValues[GlobalClasses.TestData.KeyWords.INVITE_USER_IFRAME], /*iframe's xpath*/
                     null, /*menu entry's xpath*/
-                    GlobalClasses.TestData.TestKeyValues[GlobalClasses.TestData.KeyWords.INVITE_USER_LOGIN_DESCR] /*keys to send*/
+                    GlobalClasses.TestData.TestKeyValues[GlobalClasses.TestData.KeyWords.INVITE_USER_LOGIN_DESCR], /*keys to send*/
+                    true /*click the element*/
                 );
 
             });
