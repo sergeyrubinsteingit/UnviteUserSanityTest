@@ -1,4 +1,4 @@
-﻿using Aspose.Pdf.Operators;
+using Aspose.Pdf.Operators;
 using DocumentFormat.OpenXml.Spreadsheet;
 using DocumentFormat.OpenXml.Wordprocessing;
 using Microsoft.Office.Interop.Outlook;
@@ -33,7 +33,7 @@ namespace Test.GlobalClasses
             INVITE_USER_AVAILABLE_ROLES, INVITE_USER_ADMIN_ROLE, INVITE_USER_VMO_MANAGER_BOX, INVITE_USER_WEB_SCREEN_BOX,
             INVITE_USER_LOG_BOX, INVITE_USER_EDITWRITE_BOX, INVITE_USER_EVENT_CATEGORY, INVITE_USER_GROUP_CATEGORY,
             INVITE_USER_ALERTS_FILTER, INVITE_USER_ALERTS_FILTER_BTN,
-            INVITE_USER_ALERTS_SMS_BOX, NOTIF_SUCCESS, NOTIF_ERROR, INVITE_USER_CAPTCHA_BOX, INVITE_USER_CAPTCHA_CHECKMARK, 
+            INVITE_USER_ALERTS_SMS_BOX, NOTIF_SUCCESS, NOTIF_ERROR, USER_ID, INVITE_USER_CAPTCHA_BOX, INVITE_USER_CAPTCHA_CHECKMARK, 
             INVITE_USER_CONTINUE_BUTTON, 
             INVITE_USER_CAPTCHA_SPINNER, INVITE_USER_USER_PASSWORD_FIELD, INVITE_USER_PASSWORD_MATCH, INVITE_USER_IS_TERMS_AND_CONDITIONS, 
             INVITE_USER_PASSWORD, INVITE_USER_USER_FIRSTNAME,
@@ -50,7 +50,7 @@ namespace Test.GlobalClasses
                 {KeyWords.URL_USERS, "https://qa.nayax.com/core/public/f?model=administration/Users"},
                 {KeyWords.ACTOR_QA, "sergey_EatDrinkSleepDie57"},
                 {KeyWords.USER_NAME, "sergeyr"},
-                {KeyWords.PASS_QA, "rubi69QA0******"},
+                {KeyWords.PASS_QA, "rubi69QA1******"},
                 {KeyWords.PASS_PROD, "rubi69production-3*"},
                 {KeyWords.USER_MAIL_INPUT, "input#txtUser"},
                 {KeyWords.USER_PASS_INPUT, "input#txtPassword"},
@@ -87,15 +87,16 @@ namespace Test.GlobalClasses
                 {KeyWords.INVITE_USER_ADMIN_ROLE, "//*[@id=\"uiMainTD\"]/div/div[1]/div[3]/div/div[1]/div[2]/div[2]/label"},
                 {KeyWords.INVITE_USER_VMO_MANAGER_BOX, "span.custom-control-input[7]" },
                 {KeyWords.INVITE_USER_WEB_SCREEN_BOX, "//*[@id=\"menuTree_0\"]/i"},
-                {KeyWords.INVITE_USER_LOG_BOX, "//*[@id=\"menuTree_75\"]/a/input"},
+                {KeyWords.INVITE_USER_LOG_BOX, "//*[@id=\"menuTree_74\"]/a/input"},
                 {KeyWords.INVITE_USER_EDITWRITE_BOX, "//*[@id=\"b-\"]"},
                 {KeyWords.INVITE_USER_EVENT_CATEGORY, "//*[@id=\"event_category_id_input\"]"},
                 {KeyWords.INVITE_USER_GROUP_CATEGORY, "//*[@id=\"group_category_id_input\"]"},
                 {KeyWords.INVITE_USER_ALERTS_FILTER, "//*[@id=\"search_event\"]"},
                 {KeyWords.INVITE_USER_ALERTS_FILTER_BTN, "//*[@id=\"uiMainTD\"]/div/div[1]/div[6]/div/div[1]/div[1]/div[3]/button"},
                 {KeyWords.INVITE_USER_ALERTS_SMS_BOX, "//*[@id=\"userRule_table\"]/div[3]/table/tbody/tr[1]/td[4]/input"},
-                {KeyWords.NOTIF_SUCCESS, "div.notification.success"},
-                {KeyWords.NOTIF_ERROR, "div.notification.error"},
+                {KeyWords.NOTIF_SUCCESS, "div#success_notification"},
+                {KeyWords.NOTIF_ERROR, "div#error_notification"},
+                {KeyWords.USER_ID, "input#search_input"},
                 {KeyWords.INVITE_USER_CAPTCHA_BOX, "span#recaptcha-anchor"},
                 {KeyWords.INVITE_USER_CAPTCHA_CHECKMARK, "div.recaptcha-checkbox-checkmark"},
                 {KeyWords.INVITE_USER_CAPTCHA_SPINNER, "div.recaptcha-checkbox-spinner"},
