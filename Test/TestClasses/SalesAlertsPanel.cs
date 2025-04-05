@@ -14,8 +14,8 @@ namespace Test.TestClasses
         static readonly Dictionary<string, string> schedules = new Dictionary<string, string>
         {
             { "Schedule Sales Summary", "//*[@id=\"grid_DailyReportWeekDays\"]/table/tbody/tr[2]/td[2]/input" },
-            { "Schedule Machine Alerts Reports", "//*[@id=\"__BVID__232\"]" },
-            { "//*[@id=\"__BVID__232\"]/option[11]", "//*[@id=\"treeReports_0\"]/a/input" }
+            { "Schedule Machine Alerts Reports", "//*[@id=\"__BVID__233\"]" },
+            { "//*[@id=\"__BVID__233\"]/option[11]", "//*[@id=\"treeReports_0\"]/a/input" }
         };
 
         [Obsolete]
